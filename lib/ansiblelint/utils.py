@@ -672,7 +672,7 @@ def is_playbook(filename: str) -> bool:
 def get_yaml_files(options: Namespace) -> dict:
     """Find all yaml files."""
     # git is preferred as it also considers .gitignore
-    git_command = ['git', 'ls-files', '*.yaml', '*.yml']
+    git_command = ['git', 'diff', '--name-only', '--cached']
     _logger.info("Discovering files to lint: %s", ' '.join(git_command))
 
     out = None
